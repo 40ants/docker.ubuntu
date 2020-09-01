@@ -11,8 +11,8 @@
 
 - name: Add Docker repository key
   apt_key:
-    id: "{{ apt_key_sig }}"
-    url: "{{ apt_key_url }}"
+    id: "{{ docker_apt_key_sig }}"
+    url: "{{ docker_apt_key_url }}"
     state: present
   register: add_repository_key
   ignore_errors: true
@@ -23,7 +23,7 @@
 
 - name: Add Docker repository and update apt cache
   apt_repository:
-    repo: "{{ apt_repository }}"
+    repo: "{{ docker_apt_repository }}"
     update_cache: yes
     state: present
 
